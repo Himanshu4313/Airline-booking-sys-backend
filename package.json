@@ -1,0 +1,20 @@
+{
+  "name": "airline-booking-sys-backend",
+  "version": "1.0.0",
+  "description": "This is a basic airline backend system",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "expressjs"
+  ],
+  "author": "Himanshu kumar",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9"
+  }
+}
