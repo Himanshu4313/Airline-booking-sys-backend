@@ -1,5 +1,10 @@
 import express from "express";
+import apiRoutes from "./routes/index.js";
 const app = express();
+
+
+//for routes
+app.use('/api',apiRoutes);
 
 app.use("/", (req, res) => {
   res.status(200).json({ message: "Hey welcome,to my server" });
