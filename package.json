@@ -3,18 +3,21 @@
   "version": "1.0.0",
   "description": "This is a basic airline backend system",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon src/index.js"
   },
   "keywords": [
     "nodejs",
     "expressjs"
+    
   ],
   "author": "Himanshu kumar",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "http-status-codes": "^2.3.0",
     "nodemon": "^3.1.9"
   }
 }
