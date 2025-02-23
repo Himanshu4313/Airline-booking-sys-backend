@@ -35,8 +35,7 @@ Lets atke a look inside the `src` folder
     - Inside the `src/config` folder create a file named `config.json` and write the following code  :
 
     ```
-      {
-
+    {
   "development": {
     "username": "root",
     "password": null,
@@ -59,9 +58,9 @@ Lets atke a look inside the `src` folder
     "dialect": "mysql"
   }
 }
+```
 
-
-    ```
+   
 
     - if you are setting up youe development enviroment , then write the username of your db , password of your db and in dialect mention whatever db you are using (mysql, postgres etc)
 
