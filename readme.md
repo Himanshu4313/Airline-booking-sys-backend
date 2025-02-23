@@ -35,7 +35,7 @@ Lets atke a look inside the `src` folder
     - Inside the `src/config` folder create a file named `config.json` and write the following code  :
 
     ```
-{  "development": {
+    {  "development": {
     "username": "root",
     "password": null,
     "database": "database_development",
@@ -56,7 +56,10 @@ Lets atke a look inside the `src` folder
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
-}```
-    - if you are setting up youe development enviroment , then write the username of your db , password of your db and in dialect mention whatever db you are using (mysql, postgres etc)
+}
+    ```
+
+    
+       - if you are setting up youe development enviroment , then write the username of your db , password of your db and in dialect mention whatever db you are using (mysql, postgres etc)
 
     - if you are setting up test or production enviroment , make sure you also replace the database name with your actual database name.
