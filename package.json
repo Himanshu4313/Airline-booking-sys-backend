@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "This is a basic airline backend system",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "nodemon src/index.js"
   },

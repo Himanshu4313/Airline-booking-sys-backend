@@ -1,5 +1,5 @@
-import express from "express";
-import apiRoutes from "./routes/index.js";
+const express = require('express');
+const apiRoutes = require("./routes/index.js");
 const app = express();
 
 
@@ -15,4 +15,4 @@ app.use("*", (req, res) => {
   res.status(400).send("OOPS! 404 page not found");
 });
 
-export default app;
+module.exports = app;

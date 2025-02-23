@@ -1,8 +1,8 @@
-import express from "express";
+const express = require("express");
 
-import { information } from '../../controllers/info.controllers.js';
+const information = require("../../controllers/info.controllers.js");
 const router = express.Router();
 
-router.get('/info', information );
+router.get("/info", information.info);
 
-export default router;
+module.exports = router;
