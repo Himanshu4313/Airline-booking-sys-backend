@@ -3,6 +3,10 @@ const apiRoutes = require("./routes/index.js");
 const app = express();
 
 
+app.use(express.json()); // for json request and response
+app.use(express.urlencoded({extended : true}));
+
+console.log("Enter API routes now");
 //for routes
 app.use('/api',apiRoutes);
 

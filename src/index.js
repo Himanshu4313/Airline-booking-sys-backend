@@ -2,6 +2,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const app = require("./app.js");
+const express = require("express");
 
 const PORT = process.env.PORT || 4000;
 
