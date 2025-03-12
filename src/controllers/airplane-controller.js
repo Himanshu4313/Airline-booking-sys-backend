@@ -56,6 +56,18 @@ async function getAirplaneById(req, res) {
   try {
     const id = req.params.id;
     const airplane = await AirplaneService.getAirplaneById(id);
+
+    if (!airplane) {
+      return res.status(StatusCodes.NOT_FOUND).json({
+        success: false,
+        message: "Airplane not found",
+        data: {},
+        error: {
+          StatusCodes: StatusCodes.NOT_FOUND,
+          explaination: "This airplane does not exist in the database",
+        },
+      });
+    }
     return res.status(StatusCodes.OK).json({
       success: true,
       message: "Airplane retrieved successfully",
@@ -76,10 +88,22 @@ async function updateAirplane(req, res) {
   try {
     const id = req.params.id;
     const airplaneData = req.body;
-    const upadtedAirplane = await AirplaneService.updateAirplane(
-      id,
-      airplaneData
-    );
+    const upadtedAirplane = await AirplaneService.updateAirplane(id, {
+      airplaneData,
+    });
+
+    if (!upadtedAirplane) {
+      return res.status(StatusCodes.NOT_FOUND).json({
+        success: false,
+        message: "Airplane not found",
+        data: {},
+        error: {
+          StatusCodes: StatusCodes.NOT_FOUND,
+          explaination:
+            "This airplane does not exist in the database for updating",
+        },
+      });
+    }
     return res.status(StatusCodes.OK).json({
       success: true,
       message: "Airplane updated successfully",
@@ -100,6 +124,18 @@ async function deleteAirplane(req, res) {
   try {
     const id = req.params.id;
     const deleteAirplane = await AirplaneService.deleteAirplane(id);
+
+    if (!deleteAirplane) {
+      return res.status(StatusCodes.NOT_FOUND).json({
+        success: false,
+        message: "Airplane not found",
+        data: {},
+        error: {
+          StatusCodes: StatusCodes.NOT_FOUND,
+          message: "Airplane not found in database for deleting",
+        },
+      });
+    }
     return res.status(StatusCodes.OK).json({
       success: true,
       message: "Airplane deleted successfully",
@@ -120,5 +156,5 @@ module.exports = {
   getAirplanes,
   getAirplaneById,
   updateAirplane,
-  deleteAirplane
+  deleteAirplane,
 };

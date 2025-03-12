@@ -4,8 +4,6 @@ const airplaneRepository = new AirplaneRepository();
 
 async function createAirplane(data) {
   try {
-    console.log("enter in service file ");
-    console.log("data", data);
     const airplane = await airplaneRepository.create(data);
     return airplane;
   } catch (error) {
@@ -40,17 +38,17 @@ async function updateAirplane(id, data) {
 }
 
 async function deleteAirplane(id) {
-    try {
-         const deleteAirplane =  await airplaneRepository.destroy(id);
-         return deleteAirplane;
-    } catch (error) {
-        throw error;
-    }
+  try {
+    const deleteAirplane = await airplaneRepository.destroy(id);
+    return deleteAirplane;
+  } catch (error) {
+    throw error;
+  }
 }
 module.exports = {
   createAirplane,
   getAllAirplanes,
   getAirplaneById,
   updateAirplane,
-  deleteAirplane
+  deleteAirplane,
 };
