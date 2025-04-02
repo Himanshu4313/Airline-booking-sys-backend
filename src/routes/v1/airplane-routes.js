@@ -4,8 +4,6 @@ const { AirplaneController } = require("../../controllers/index");
 const { airplaneMiddlewares } = require("../../middlewares");
 const router = express.Router();
 
-console.log("Enter airplane routes");
-
 // /api/v1/airplanes POST
 router.post(
   "/",

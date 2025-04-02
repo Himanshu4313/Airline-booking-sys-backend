@@ -6,7 +6,7 @@ const v2Routes  = require('../routes/v2');
 
 const router = express.Router();
 
-console.log("Enter router index file");
+// console.log("Enter router index file");
 
 router.use('/v1',v1Routes);
 

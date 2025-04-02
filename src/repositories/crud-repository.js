@@ -7,8 +7,8 @@ class CrudRepository {
   }
   async create(data) {
     try {
-      console.log("Enter create queries function ");
-      console.log("Model being used:", this.model);
+      // console.log("Enter create queries function ");
+      // console.log("Model being used:", this.model);
       const result = await this.model.create(data);
       return result;
     } catch (error) {
