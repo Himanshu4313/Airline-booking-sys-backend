@@ -65,6 +65,9 @@ class CrudRepository {
       throw error;
     }
   }
+
 }
+
+
 
 module.exports = CrudRepository;
