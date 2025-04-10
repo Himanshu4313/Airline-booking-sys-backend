@@ -13,5 +13,7 @@ router.post("/",
 // GET : /api/v1/flights?trips=BOM-DEL    
 router.get('/', flightController.getAllFlights);
 
+// GET : /api/v1/flights/5
+router.get('/:id',flightController.getFlightById);
 
 module.exports = router;

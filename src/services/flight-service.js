@@ -92,7 +92,16 @@ async function getAllFlights(query) {
   */
 }
 
+async function getFlight(id) {
+  try {
+    const flight = await flightRepository.get(id);
+    return flight;
+  } catch (error) {
+    throw error;
+  }
+}
 module.exports = {
   createFlight,
   getAllFlights,
+  getFlight
 };
