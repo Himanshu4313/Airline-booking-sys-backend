@@ -6,14 +6,23 @@ const { flightController } = require("../../controllers/index");
 const { flightMiddleware } = require("../../middlewares");
 
 // POST : /api/v1/flights
-router.post("/",
-    flightMiddleware.validateCreateFlightRequest,
-    flightController.createFlight);
+router.post(
+  "/",
+  flightMiddleware.validateCreateFlightRequest,
+  flightController.createFlight
+);
 
-// GET : /api/v1/flights?trips=BOM-DEL    
-router.get('/', flightController.getAllFlights);
+// GET : /api/v1/flights?trips=BOM-DEL
+router.get("/", flightController.getAllFlights);
 
 // GET : /api/v1/flights/5
-router.get('/:id',flightController.getFlightById);
+router.get("/:id", flightController.getFlightById);
+
+//patch : /api/v1/flights/:id
+router.patch(
+  "/:id",
+  flightMiddleware.validateUpdateSeatsRequest,
+  flightController.updateRemainingSeats
+);
 
 module.exports = router;

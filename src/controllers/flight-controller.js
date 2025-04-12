@@ -1,4 +1,4 @@
-const { error } = require("winston");
+const { error, log } = require("winston");
 const { flightService } = require("../services/index");
 const { StatusCodes } = require("http-status-codes");
 /**
@@ -51,7 +51,6 @@ async function createFlight(req, res) {
  */
 async function getAllFlights(req, res) {
   try {
-    
     const flights = await flightService.getAllFlights(req.query);
     return res.status(StatusCodes.OK).json({
       success: true,
@@ -77,15 +76,15 @@ async function getFlightById(req, res) {
         success: false,
         message: "Flight not found",
         data: {},
-        error: {}
-        });
-        }
-        return res.status(StatusCodes.OK).json({
-          success: true,
-          message: "Flight retrieved successfully",
-          data: flight,
-          error: {}
-          });
+        error: {},
+      });
+    }
+    return res.status(StatusCodes.OK).json({
+      success: true,
+      message: "Flight retrieved successfully",
+      data: flight,
+      error: {},
+    });
   } catch (error) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
       success: false,
@@ -95,8 +94,39 @@ async function getFlightById(req, res) {
     });
   }
 }
+
+async function updateRemainingSeats(req, res) {
+  const dec = req.body.dec;
+  let updateSeatsFlight;
+  try {
+    const response = await flightService.updateSeats({
+      flightId: req.params.id,
+      seats: req.body.seats,
+      dec: !dec,
+    });
+
+    if (response == undefined) {
+      updateSeatsFlight = await flightService.getFlight(req.params.id);
+    }
+    return res.status(StatusCodes.OK).json({
+      success: true,
+      message: "Seats updated successfully",
+      data: updateSeatsFlight,
+      error: {},
+    });
+  } catch (error) {
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      success: false,
+      message:
+        "Something went wrong while updating remaining seats in the flight ",
+      data: {},
+      error: error,
+    });
+  }
+}
 module.exports = {
   createFlight,
   getAllFlights,
-  getFlightById
+  getFlightById,
+  updateRemainingSeats,
 };
